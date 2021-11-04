@@ -1,0 +1,29 @@
+{
+  "root": "apps/menu-challenge-e2e",
+  "sourceRoot": "apps/menu-challenge-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/menu-challenge-e2e/cypress.json",
+        "devServerTarget": "menu-challenge:serve",
+        "tsConfig": "apps/menu-challenge-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "menu-challenge:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/menu-challenge-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["menu-challenge"]
+}

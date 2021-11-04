@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "menu-challenge": "apps/menu-challenge",
+    "menu-challenge-e2e": "apps/menu-challenge-e2e"
+  }
+}

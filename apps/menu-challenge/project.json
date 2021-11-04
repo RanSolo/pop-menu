@@ -1,0 +1,73 @@
+{
+  "root": "apps/menu-challenge",
+  "sourceRoot": "apps/menu-challenge/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/menu-challenge",
+        "index": "apps/menu-challenge/src/index.html",
+        "baseHref": "/",
+        "main": "apps/menu-challenge/src/main.tsx",
+        "polyfills": "apps/menu-challenge/src/polyfills.ts",
+        "tsConfig": "apps/menu-challenge/tsconfig.app.json",
+        "assets": [
+          "apps/menu-challenge/src/favicon.ico",
+          "apps/menu-challenge/src/assets"
+        ],
+        "styles": ["apps/menu-challenge/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/menu-challenge/src/environments/environment.ts",
+              "with": "apps/menu-challenge/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "menu-challenge:build",
+        "hmr": true,
+        "proxyConfig": "apps/menu-challenge/proxy.conf.json"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "menu-challenge:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/menu-challenge/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/menu-challenge"],
+      "options": {
+        "jestConfig": "apps/menu-challenge/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
