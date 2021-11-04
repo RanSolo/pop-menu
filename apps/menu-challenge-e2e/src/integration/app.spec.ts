@@ -1,4 +1,4 @@
-import { getGreeting } from '../support/app.po';
+import { getGreeting, getTitle } from '../support/app.po';
 
 describe('menu-challenge', () => {
   beforeEach(() => cy.visit('/'));
@@ -9,5 +9,11 @@ describe('menu-challenge', () => {
 
     // Function helper example, see `../support/app.po.ts` file
     getGreeting().contains('Welcome to menu-challenge!');
+  });
+  it('should display a menu item title', () => {
+    // // Custom command example, see `../support/commands.ts` file
+    // cy.login('my-email@something.com', 'myPassword');
+
+    getTitle().contains('Shrimp and Chorizo Paella');
   });
 });

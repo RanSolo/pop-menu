@@ -16,6 +16,7 @@ describe('App', () => {
     });
 
     const { baseElement } = render(<App />);
-    await waitFor(() => getByText(baseElement, 'my message'));
+    await waitFor(() => getByText(baseElement, 'Welcome to menu-challenge!'));
+    await waitFor(() => getByText(baseElement, 'Shrimp and Chorizo Paella'));
   });
 });
