@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Message } from '@pop-menu/api-interfaces';
+import { MenuItem } from '@pop-menu/api-interfaces';
 
 export const App = () => {
-  const [m, setMessage] = useState<Message>({ message: '' });
+  const [item, setItem] = useState<MenuItem>({ title: '', imageUrl: '', price: 0, description: '' });
 
   useEffect(() => {
     fetch('/api')
       .then((r) => r.json())
-      .then(setMessage);
+      .then((r) =>setItem(r));
   }, []);
 
   return (
@@ -20,7 +20,7 @@ export const App = () => {
           alt="Nx - Smart, Extensible Build Framework"
         />
       </div>
-      <div>{m.message}</div>
+      <h2>{item.title}</h2>
     </>
   );
 };
