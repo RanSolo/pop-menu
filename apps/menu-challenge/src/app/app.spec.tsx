@@ -7,16 +7,14 @@ describe('App', () => {
     delete global['fetch'];
     cleanup();
   });
-
   it('should render successfully', async () => {
     global['fetch'] = jest.fn().mockResolvedValueOnce({
-      json: () => ({
-        message: 'my message',
-      }),
-    });
+      json: () => ([{
+        title: 'Mock Title',
+      }]),
+    })  
 
-    const { baseElement } = render(<App />);
-    await waitFor(() => getByText(baseElement, 'Welcome to menu-challenge!'));
-    await waitFor(() => getByText(baseElement, 'Shrimp and Chorizo Paella'));
+    const { baseElement } = render(<App />) ;
+    await waitFor(() => getByText(baseElement as HTMLElement, 'Welcome to My Hip Restaraunt!'));
   });
 });
