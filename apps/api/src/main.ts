@@ -1,12 +1,12 @@
 import * as express from 'express';
 import { MenuItem } from '@pop-menu/api-interfaces';
-
+import getMenuItems from './menuItems'
 const app = express();
 
-const menuItem: MenuItem = { imageUrl: 'https://mui.com/static/images/cards/paella.jpg', title: 'Shrimp and Chorizo Paella',  description:  'This impressive paella is a perfect party dish and a fun meal to share together. Add 1 cup of frozen peas along with the mussels, if you like. add 1.99 for add on' ,  price: 10 };
-
+const menuItems = getMenuItems()
+console.log(menuItems);
 app.get('/api', (req, res) => {
-  res.send(menuItem);  
+  res.send(menuItems as MenuItem[]);  
 });
 
 const port = process.env.port || 3333;
