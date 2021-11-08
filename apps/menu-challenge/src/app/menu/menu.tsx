@@ -1,4 +1,4 @@
-import { HandleDelete, MenuItem } from '@pop-menu/api-interfaces';
+import { OnClick, MenuItem } from '@pop-menu/api-interfaces';
 import { Item } from '../menu-item/menu-item';
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'

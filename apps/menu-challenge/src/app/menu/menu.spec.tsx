@@ -18,11 +18,9 @@ const mockItems = [{
   }]
 
 describe('Menu', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     global['fetch'] = jest.fn().mockResolvedValueOnce({
-      json: () => ([{
-        title: 'Mock Title',
-      }]),
+      json: () => (mockItems),
     });
   })
 
@@ -31,25 +29,44 @@ describe('Menu', () => {
     cleanup();
   });
 
-  it('should render successfully', () => {
+  it('should render successfully', async () => {
     const { baseElement } = render(<Menu />);
-    expect(baseElement).toBeTruthy();
+    await waitFor(() =>expect(baseElement).toBeTruthy());
   }); 
  
-  it('should display fetched items titles', async () => {
+  it('should display fetched item titles', async () => {
     const { baseElement } = render(<Menu />);
+    
     await waitFor(() => findByText(baseElement as HTMLElement, 'Mock Title'));
   });
+
+  it('should display all items', async () => {
+    const { baseElement } = render(<Menu />);
+    
+    const items = await screen.findAllByText('Remove Item');
+    expect(items).toHaveLength(2);
+  });
   
-  it('should not display deleted items titles', async () => {
+  it('should open confirm delete modal', async () => {
     const { baseElement } = render(<Menu />);
 
     await waitFor(() => findByText(baseElement as HTMLElement, 'Mock Title'));
  
-    act(() => userEvent.click(screen.getByText('Remove Item')));
+    userEvent.click(screen.getAllByText('Remove Item')[0]);
+ 
+    const items = await screen.findAllByText('Delete');
+    expect(items).toHaveLength(1);
+  });
+
+  it('should delete item', async () => {
+    const { baseElement } = render(<Menu />);
+
+    await waitFor(() => findByText(baseElement as HTMLElement, 'Mock Title'));
+ 
+    userEvent.click(screen.getAllByText('Remove Item')[0]);
+    userEvent.click(screen.getByText('Delete'));
  
     const items = await screen.findAllByText('Remove Item');
-
     expect(items).toHaveLength(1);
   });
 });
