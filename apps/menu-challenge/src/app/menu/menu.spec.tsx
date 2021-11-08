@@ -33,7 +33,7 @@ describe('Menu', () => {
     const { baseElement } = render(<Menu />);
     await waitFor(() =>expect(baseElement).toBeTruthy());
   }); 
- 
+
   it('should display fetched item titles', async () => {
     const { baseElement } = render(<Menu />);
     
@@ -51,9 +51,9 @@ describe('Menu', () => {
     const { baseElement } = render(<Menu />);
 
     await waitFor(() => findByText(baseElement as HTMLElement, 'Mock Title'));
- 
+
     userEvent.click(screen.getAllByText('Remove Item')[0]);
- 
+
     const items = await screen.findAllByText('Delete');
     expect(items).toHaveLength(1);
   });
@@ -62,7 +62,7 @@ describe('Menu', () => {
     const { baseElement } = render(<Menu />);
 
     await waitFor(() => findByText(baseElement as HTMLElement, 'Mock Title'));
- 
+
     userEvent.click(screen.getAllByText('Remove Item')[0]);
     userEvent.click(screen.getByText('Delete'));
  
