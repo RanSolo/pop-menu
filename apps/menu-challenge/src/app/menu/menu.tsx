@@ -17,7 +17,11 @@ export function Menu() {
   return (
     <div>
       <Container maxWidth="xl">
-        <Grid container direction='column' justifyContent='flex-start'>
+        <Grid
+          container
+          direction='column'
+          justifyContent='flex-start'
+        >
           <Grid item >
             <h1>Menu</h1>
           </Grid>
@@ -29,7 +33,11 @@ export function Menu() {
           </Grid>
         </Grid>
         <br />
-        <Grid container direction='row' spacing={2}>
+        <Grid
+          container
+          direction='row'
+          spacing={2}
+        >
           {items.map((item) => (
             <Item 
               key={`${item?.title} ${item?.price}`}

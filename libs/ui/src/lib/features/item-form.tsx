@@ -16,17 +16,6 @@ interface NewMenuItemProps {
 }
 
 export function ItemForm({item, setItem}: NewMenuItemProps) {
-  const [open, setOpen] = React.useState(false);
-  const theme = useTheme();
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const handleChange = (event: any ) => {
     const { value, name } = event.target;
     setItem((old) => ({
@@ -37,14 +26,19 @@ export function ItemForm({item, setItem}: NewMenuItemProps) {
   }
 
   return (
-    <Grid container direction='column' justifyContent='flex-start' spacing={1}>
-    <Grid item xs={12}>
-      <Input 
-        label={'Title'} 
-        name={'title'} 
-        value={item.title as string} 
-        onChange={handleChange} 
-      />
+    <Grid
+      container
+      direction='column'
+      justifyContent='flex-start'
+      spacing={1}
+    >
+      <Grid item xs={12}>
+        <Input 
+          label={'Title'}
+          name={'title'}
+          value={item.title as string}
+          onChange={handleChange}
+        />
       </Grid>
       <Grid item xs={12}>
         <Input 
