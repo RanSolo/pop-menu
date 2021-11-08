@@ -76,7 +76,7 @@ describe('Menu', () => {
     await waitFor(() => findByText(baseElement as HTMLElement, 'Add Item'));
 
     userEvent.click(screen.getByText('Add Item'));
-    userEvent.click(screen.getByText('Create'));
+    userEvent.click(screen.getByText('Add'));
  
     const items = await screen.findAllByText('Remove Item');
     expect(items).toHaveLength(3);
