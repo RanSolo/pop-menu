@@ -69,4 +69,16 @@ describe('Menu', () => {
     const items = await screen.findAllByText('Remove Item');
     expect(items).toHaveLength(1);
   });
+
+  it('should create item', async () => {
+    const { baseElement } = render(<Menu />);
+
+    await waitFor(() => findByText(baseElement as HTMLElement, 'Add Item'));
+
+    userEvent.click(screen.getByText('Add Item'));
+    userEvent.click(screen.getByText('Create'));
+ 
+    const items = await screen.findAllByText('Remove Item');
+    expect(items).toHaveLength(3);
+  });
 });
