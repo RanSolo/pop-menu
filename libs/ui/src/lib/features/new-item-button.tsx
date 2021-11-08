@@ -48,10 +48,15 @@ export function NewItemButton({items, setItems}: NewMenuItemProps) {
 
   return (
     <div>
-      <Button
-        text="Add Item"
-        onClick={handleClickOpen}
-      />
+      <Grid container direction="row">
+        <Grid item xs={5} />
+        <Grid item xs={2}>
+          <Button
+            text="Add Item"
+            onClick={handleClickOpen}
+          />
+        </Grid>
+      </Grid>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -67,27 +72,27 @@ export function NewItemButton({items, setItems}: NewMenuItemProps) {
           />
         </DialogContent>
         <DialogActions>
-        <Container>
-          <Grid container 
-            direction="row" 
-            justifyContent="flex-start"
-            spacing={1}
-          >
-            <Grid item>
-              <Button 
-                text="Cancel"
-                onClick={handleClose}
-                color="default"
-              />
+          <Container>
+            <Grid container 
+              direction="row" 
+              justifyContent="flex-start"
+              spacing={10}
+            >
+              <Grid item>
+                <Button
+                  text="Add"
+                  onClick={handleAdd}
+                />
+              </Grid>
+              <Grid item>
+                <Button 
+                  text="Cancel"
+                  onClick={handleClose}
+                  color="default"
+                />
+              </Grid>
             </Grid>
-            <Grid item>
-              <Button
-                text="Add"
-                onClick={handleAdd}
-              />
-            </Grid>
-          </Grid>
-        </Container>
+          </Container>
         </DialogActions>
       </Dialog>
     </div>
