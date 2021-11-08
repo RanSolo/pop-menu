@@ -8,6 +8,9 @@ export interface MenuItem {
   price?: number;
 }
 
-export interface HandleDelete {
-  (event: React.MouseEvent<Element, MouseEvent>, itemId: string): void
+export interface OnClick {
+  (
+    event?: React.MouseEvent<Element, MouseEvent>, 
+    variable?: string
+  ): void
 }
