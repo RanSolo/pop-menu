@@ -11,7 +11,7 @@ import Button from './button';
 
 interface DeleteMenuItem {
   text: string
-  onDelete: any
+  onDelete: OnClick
 }
 
 export function DeleteItemButton({text, onDelete}: DeleteMenuItem) {
