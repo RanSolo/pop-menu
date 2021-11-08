@@ -4,9 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import Typography from '@material-ui/core/Typography';
-import { OnClick, MenuItem } from '@pop-menu/api-interfaces';
-import { Box, Grid, makeStyles } from '@material-ui/core';
-import { Button } from '@pop-menu/ui';
+import { MenuItem } from '@pop-menu/api-interfaces';
+import {Grid, makeStyles } from '@material-ui/core';
 import { DeleteItemButton } from '@pop-menu/ui';
 
 const useStyles = makeStyles({
@@ -39,14 +38,22 @@ export function Item({item, items, setItems}: MenuItemProps) {
         // now delete the item from the database
         // return await deleteItem(itemId);
     } catch (ex) {
-        // if delete fails notify the user and set the ui state back to original items
+        // If delete fails notify the user and set the ui 
+        // state back to original items
         console.error(`${ex}`);
         setItems(originalItems);
     }
   };
 
   return (
-    <Grid component={Card} item xs={3}>      
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={4}
+      lg={3}
+      xl={2}
+    >      
       <Card 
         className={classes.card}
       >
@@ -57,11 +64,18 @@ export function Item({item, items, setItems}: MenuItemProps) {
           alt="food item image"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+          >
             {title}
           </Typography>
           <Typography variant="body2">
             {description}
+          </Typography>
+          <Typography variant="body2">
+            Price: ${price}
           </Typography>
         </CardContent>
         <CardActions>
