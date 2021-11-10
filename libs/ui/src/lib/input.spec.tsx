@@ -3,13 +3,13 @@ import { render } from '@testing-library/react';
 import Input from './input';
 
 describe('input', () => {
-  const onChange = jest.fn()
+  const onChange = jest.fn();
   it('should render successfully', () => {
     const { baseElement } = render(
-  <Input 
+      <Input
         label={'Title'}
         name={'title'}
-        value={''}
+        value={'data input by user'}
         onChange={onChange}
       />
     );
