@@ -1,7 +1,15 @@
+# PopMenu Menu Challenge
+- Clone the repos
+- ``` npm i ```
+- ``` npx nx serve api ```
+- Listening at http://localhost:3333/api
+- ``` npx nx serve menu-challenge```
+- visit http://localhost:4200/
+- For E2E kill frontend server
+- npx nx run menu-challenge-e2e:e2e --watch
+- ``` npx nx test ui ```
+- ``` npx nx test menu-challenge ```
 
-
-
-# PopMenu
 ## Responsiveness
 ### xl
 ![Screen Shot 2021-11-10 at 10 13 44 PM](https://user-images.githubusercontent.com/6284142/141235901-661953b8-7812-4f5f-9bb4-c1bb7fa07ef9.png)
@@ -29,6 +37,6 @@
 ![Screen Shot 2021-11-10 at 10 04 05 PM](https://user-images.githubusercontent.com/6284142/141237024-476dca41-446d-4773-89ff-66333d0e8812.png)
 ### E2E Tests using cypress
 
-``` npx nx menu-challenge-e2e:e2e ```
+``` npx nx menu-challenge-e2e:e2e --watchAll ```
 ![image](https://user-images.githubusercontent.com/6284142/141234735-4942c9a1-89ab-4046-9198-770b57d925b7.png)
 This project was generated using [Nx](https://nx.dev).
