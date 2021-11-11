@@ -38,11 +38,17 @@ https://github.com/RanSolo/pop-menu/tree/main/apps
 
 ### Tests
 ``` npx nx test ui ```
+
 ![Screen Shot 2021-11-10 at 10 04 38 PM](https://user-images.githubusercontent.com/6284142/141235185-56fab330-c0fd-44f0-b93e-1996ff91573d.png)
+
 ``` npx nx test menu-challenge ```
+
 ![Screen Shot 2021-11-10 at 10 04 05 PM](https://user-images.githubusercontent.com/6284142/141237024-476dca41-446d-4773-89ff-66333d0e8812.png)
+
 ### E2E Tests using cypress
 
 ``` npx nx menu-challenge-e2e:e2e --watchAll ```
-![image](https://user-images.githubusercontent.com/6284142/141234735-4942c9a1-89ab-4046-9198-770b57d925b7.png)
-This project was generated using [Nx](https://nx.dev).
+
+![video](https://user-images.githubusercontent.com/6284142/141234735-4942c9a1-89ab-4046-9198-770b57d925b7.png)
+
+
