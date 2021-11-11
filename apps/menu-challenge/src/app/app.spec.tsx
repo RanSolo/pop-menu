@@ -25,7 +25,7 @@ describe('App', () => {
 
     const { baseElement } = render(<App />);
     await waitFor(() =>
-      getByText(baseElement as HTMLElement, 'Welcome to My Hip Restaraunt!')
+      getByText(baseElement as HTMLElement, "Welcome to Dylan's Diner!")
     );
     await waitFor(() => {
       findByText(baseElement as HTMLElement, 'Mock Title');
