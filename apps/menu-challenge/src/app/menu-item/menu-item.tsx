@@ -54,6 +54,12 @@ export function Item({ item, items, setItems }: MenuItemProps) {
   const classes = useStyles();
   const { id, title, imageUrl, description, price } = item || {};
 
+  const [editControls, setEditControls] = useState<EditControls>({
+    titleControl: false,
+    descriptionControl: false,
+    priceControl: false,
+    imageUrlControl: false
+  });
   const handleDelete = async () => {
     const originalItems = [...items];
     try {
@@ -70,6 +76,21 @@ export function Item({ item, items, setItems }: MenuItemProps) {
       console.error(`${ex}`);
       setItems(originalItems);
     }
+  };
+
+  const handleControl = (controlName: string, bool: boolean) => {
+    const clonedEditField = { ...editControls };
+    clonedEditField[controlName as string] = bool;
+    setEditControls(clonedEditField as EditControls);
+  };
+
+  const handleEditClick = (e: any, controlName: string) => {
+    handleControl(controlName, true);
+  };
+
+  const handleCancelClick = (e: any, controlName: string) => {
+    console.log('cancelClick', controlName);
+    handleControl(controlName, false);
   };
 
   const getItem = (clonedItems: MenuItem[]) =>
