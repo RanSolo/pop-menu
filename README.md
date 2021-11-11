@@ -2,7 +2,7 @@
 - Clone the repos
 - ``` npm i ```
 - ``` npx nx serve api ```
-- Listening at http://localhost:3333/api
+- Listening at http://localhost:3333/api Just a server no db involved.
 - ``` npx nx serve menu-challenge```
 - visit http://localhost:4200/
 - For E2E kill frontend server
