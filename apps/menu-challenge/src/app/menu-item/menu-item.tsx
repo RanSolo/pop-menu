@@ -5,9 +5,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { MenuItem } from '@pop-menu/api-interfaces';
-import {Grid, makeStyles } from '@material-ui/core';
-import { DeleteItemButton } from '@pop-menu/ui';
+import { Button, DeleteItemButton, Input } from '@pop-menu/ui';
+import { MouseEventHandler, useState, useEffect } from 'react';
 
 const useStyles = makeStyles({
   card: {
@@ -108,6 +107,9 @@ export function Item({item, items, setItems}: MenuItemProps) {
         </CardContent>
 
         <CardActions className={classes.cardActions}>
+          <Grid container alignContent="flex-end">
+            <DeleteItemButton text="Remove Item" onDelete={handleDelete} />
+          </Grid>
         </CardActions>
       </Card>
     </Grid>
