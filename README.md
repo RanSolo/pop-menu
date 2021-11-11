@@ -10,6 +10,10 @@
 - ``` npx nx test ui ```
 - ``` npx nx test menu-challenge --watchAll ```
 
+Pertinent code resides mostly in these two areas
+https://github.com/RanSolo/pop-menu/tree/main/libs
+https://github.com/RanSolo/pop-menu/tree/main/apps
+
 ## Responsiveness
 ### xl
 ![Screen Shot 2021-11-10 at 10 13 44 PM](https://user-images.githubusercontent.com/6284142/141235901-661953b8-7812-4f5f-9bb4-c1bb7fa07ef9.png)
