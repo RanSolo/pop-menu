@@ -11,29 +11,23 @@ import Input from '../input';
 import { Grid } from '@material-ui/core';
 
 interface NewMenuItemProps {
-  item: MenuItem
-  setItem: React.Dispatch<React.SetStateAction<MenuItem>>
+  item: MenuItem;
+  setItem: React.Dispatch<React.SetStateAction<MenuItem>>;
 }
 
-export function ItemForm({item, setItem}: NewMenuItemProps) {
-  const handleChange = (event: any ) => {
+export function ItemForm({ item, setItem }: NewMenuItemProps) {
+  const handleChange = (event: any) => {
     const { value, name } = event.target;
     setItem((old) => ({
-    ...old,
-    [name]: value,
-  }));
-    console.log('value', value);
-  }
+      ...old,
+      [name]: value
+    }));
+  };
 
   return (
-    <Grid
-      container
-      direction='column'
-      justifyContent='flex-start'
-      spacing={1}
-    >
+    <Grid container direction="column" justifyContent="flex-start" spacing={1}>
       <Grid item xs={12}>
-        <Input 
+        <Input
           label={'Title'}
           name={'title'}
           value={item.title as string}
@@ -41,30 +35,30 @@ export function ItemForm({item, setItem}: NewMenuItemProps) {
         />
       </Grid>
       <Grid item xs={12}>
-        <Input 
-          label={'Price'} 
-          name={'price'} 
-          value={item.price as number} 
-          onChange={handleChange} 
+        <Input
+          label={'Price'}
+          name={'price'}
+          value={item.price as number}
+          onChange={handleChange}
         />
       </Grid>
       <Grid item xs={12}>
-        <Input 
-          label={'Description'} 
-          name={'description'} 
-          value={item.description as string} 
-          onChange={handleChange} 
+        <Input
+          label={'Description'}
+          name={'description'}
+          value={item.description as string}
+          onChange={handleChange}
         />
       </Grid>
-      <Grid item xs={12}>      
-        <Input 
-          label={'Image Url'} 
-          name={'imageUrl'} 
-          value={item.imageUrl as string} 
-          onChange={handleChange} 
+      <Grid item xs={12}>
+        <Input
+          label={'Image Url'}
+          name={'imageUrl'}
+          value={item.imageUrl as string}
+          onChange={handleChange}
         />
       </Grid>
     </Grid>
   );
 }
-export default ItemForm
+export default ItemForm;
