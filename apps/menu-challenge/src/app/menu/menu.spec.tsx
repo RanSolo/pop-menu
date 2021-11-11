@@ -48,6 +48,7 @@ describe('Menu', () => {
   it('should display fetched item titles', async () => {
     const { baseElement } = render(<Menu />);
     const items = await screen.findAllByText('Mock Title');
+
     await waitFor(() => {
       expect(items).toHaveLength(1);
     });
@@ -55,8 +56,8 @@ describe('Menu', () => {
 
   it('should display all items', async () => {
     const { baseElement } = render(<Menu />);
-
     const items = await screen.findAllByText('Remove Item');
+
     await waitFor(() => {
       expect(items).toHaveLength(2);
     });
@@ -69,6 +70,7 @@ describe('Menu', () => {
     userEvent.click(removeBtns[0]);
 
     const deleteButton = await screen.findByText('Delete');
+
     await waitFor(() => {
       expect(deleteButton).toBeTruthy();
     });
@@ -86,18 +88,6 @@ describe('Menu', () => {
 
     userEvent.click(screen.getByText('Add Item'));
     userEvent.click(screen.getByText('Add'));
-
-    const items = await screen.findAllByText('Remove Item');
-    expect(items).toHaveLength(3);
-  });
-
-  it('have inline editability', async () => {
-    const { baseElement } = render(<Menu />);
-
-    const editBtn = await screen.findByRole('button', { label: 'edit-btn' });
-
-    userEvent.click(editBtn);
-    userEvent.click(await screen.findByText('Add'));
 
     const items = await screen.findAllByText('Remove Item');
     expect(items).toHaveLength(3);
