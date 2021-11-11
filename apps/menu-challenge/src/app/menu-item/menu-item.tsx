@@ -70,8 +70,6 @@ export function Item({ item, items, setItems }: MenuItemProps) {
       // return await deleteItem(itemId);
     } catch (ex) {
       // If delete fails notify the user and set the ui
-        // If delete fails notify the user and set the ui 
-      // If delete fails notify the user and set the ui
       // state back to original items
       console.error(`${ex}`);
       setItems(originalItems);
@@ -118,8 +116,6 @@ export function Item({ item, items, setItems }: MenuItemProps) {
         size="small"
         className={classes.editIcon}
         onClick={(e: any) => handleEditClick(e, controlName)}
-      >
-    >      
       >
         <EditIcon />
       </IconButton>
@@ -171,6 +167,23 @@ export function Item({ item, items, setItems }: MenuItemProps) {
           image={imageUrl}
           alt="food item image"
         />
+        {editControls?.imageUrlControl ? (
+          renderEditableInline(
+            'imageUrl',
+            'imageUrlControl',
+            'Image Url',
+            imageUrl as string,
+            'body2'
+          )
+        ) : (
+          <button
+            onClick={(e) => {
+              handleEditClick(e, 'imageUrlControl');
+            }}
+          >
+            Edit image url
+          </button>
+        )}
 
         <CardContent className={classes.cardContent}>
           <Grid
@@ -180,12 +193,34 @@ export function Item({ item, items, setItems }: MenuItemProps) {
             spacing={1}
           >
             <Grid item xs={12}>
+              {renderEditableInline(
+                'title',
+                'titleControl',
+                'Title',
+                title as string,
+                'subtitle1'
+              )}
             </Grid>
 
             <Grid item xs={12}>
+              {renderEditableInline(
+                'price',
+                'priceControl',
+                'Price',
+                price as number,
+                'subtitle1'
+              )}
             </Grid>
 
             <Grid item xs={12}>
+              {renderEditableInline(
+                'description',
+                'descriptionControl',
+                'Description',
+                description as string,
+                'subtitle1',
+                true
+              )}
             </Grid>
           </Grid>
         </CardContent>
