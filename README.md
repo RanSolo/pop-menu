@@ -8,7 +8,7 @@
 - For E2E kill frontend server
 - npx nx run menu-challenge-e2e:e2e --watch
 - ``` npx nx test ui ```
-- ``` npx nx test menu-challenge ```
+- ``` npx nx test menu-challenge --watchAll ```
 
 ## Responsiveness
 ### xl
