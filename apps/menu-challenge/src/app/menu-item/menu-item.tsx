@@ -40,30 +40,30 @@ const useStyles = makeStyles({
 });
 
 interface MenuItemProps {
-  item: MenuItem
-  items: MenuItem[]
-  setItems: React.Dispatch<React.SetStateAction<MenuItem[]>>
+  item: MenuItem;
+  items: MenuItem[];
+  setItems: React.Dispatch<React.SetStateAction<MenuItem[]>>;
 }
 
-export function Item({item, items, setItems}: MenuItemProps) {
+export function Item({ item, items, setItems }: MenuItemProps) {
   const classes = useStyles();
-  const {  id, title, imageUrl, description, price} = item || {}
+  const { id, title, imageUrl, description, price } = item || {};
 
   const handleDelete = async () => {
     const originalItems = [...items];
     try {
-        // Delete the item from the ui state
-        const filteredItems = originalItems.filter(
-          (i) => i.id !== id
-        );
-        setItems(filteredItems);
-        // now delete the item from the database
-        // return await deleteItem(itemId);
+      // Delete the item from the ui state
+      const filteredItems = originalItems.filter((i) => i.id !== id);
+      setItems(filteredItems);
+      // now delete the item from the database
+      // return await deleteItem(itemId);
     } catch (ex) {
+      // If delete fails notify the user and set the ui
         // If delete fails notify the user and set the ui 
-        // state back to original items
-        console.error(`${ex}`);
-        setItems(originalItems);
+      // If delete fails notify the user and set the ui
+      // state back to original items
+      console.error(`${ex}`);
+      setItems(originalItems);
     }
   };
 
