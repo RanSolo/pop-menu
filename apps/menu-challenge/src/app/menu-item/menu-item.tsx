@@ -2,7 +2,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { MenuItem } from '@pop-menu/api-interfaces';
 import {Grid, makeStyles } from '@material-ui/core';
@@ -13,9 +14,31 @@ const useStyles = makeStyles({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start'
+  },
+  cardMedia: {
+    height: '12em',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    textAlign: 'left'
+  },
+  cardContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    textAlign: 'left'
+  },
+  cardActions: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end'
+  },
+  editIcon: {
+    float: 'right'
   }
-})
+});
 
 interface MenuItemProps {
   item: MenuItem
@@ -57,32 +80,34 @@ export function Item({item, items, setItems}: MenuItemProps) {
       <Card 
         className={classes.card}
       >
+    <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
+      <Card className={classes.card}>
         <CardMedia
           component="img"
-          height="240"
+          className={classes.cardMedia}
           image={imageUrl}
           alt="food item image"
         />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
+
+        <CardContent className={classes.cardContent}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="flex-start"
+            spacing={1}
           >
-            {title}
-          </Typography>
-          <Typography variant="body2">
-            {description}
-          </Typography>
-          <Typography variant="body2">
-            Price: ${price}
-          </Typography>
+            <Grid item xs={12}>
+            </Grid>
+
+            <Grid item xs={12}>
+            </Grid>
+
+            <Grid item xs={12}>
+            </Grid>
+          </Grid>
         </CardContent>
-        <CardActions>
-          <DeleteItemButton 
-            text="Remove Item"
-            onDelete={handleDelete}
-          />
+
+        <CardActions className={classes.cardActions}>
         </CardActions>
       </Card>
     </Grid>
