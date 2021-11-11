@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Button, DeleteItemButton, Input } from '@pop-menu/ui';
-import { MouseEventHandler, useState, useEffect } from 'react';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
   card: {
@@ -67,18 +67,76 @@ export function Item({ item, items, setItems }: MenuItemProps) {
     }
   };
 
-  return (
-    <Grid
-      item
-      xs={12}
-      sm={6}
-      md={4}
-      lg={3}
-      xl={2}
-    >      
-      <Card 
-        className={classes.card}
+  const getItem = (clonedItems: MenuItem[]) =>
+    clonedItems.find((i) => i.id === id) || ({} as MenuItem);
+
+  const handleChange = (event: any) => {
+    const clonedItems = [...items];
+    const { value, name } = event.target;
+    const item = getItem(clonedItems);
+    item[name as keyof typeof item] = value;
+
+    setItems(clonedItems);
+  };
+
+  const renderEditSaveBtns = (
+    name: string,
+    controlName: string,
+    value: string | number
+  ) =>
+    editControls && editControls[controlName] ? (
+      ''
+    ) : (
+      <IconButton
+        aria-label="edit-btn"
+        size="small"
+        className={classes.editIcon}
+        onClick={(e: any) => handleEditClick(e, controlName)}
       >
+    >      
+      >
+        <EditIcon />
+      </IconButton>
+    );
+
+  const renderEditableInline = (
+    name: string,
+    controlName: string,
+    label: string,
+    value: string | number,
+    variant = 'body2',
+    multiline = false
+  ) => (
+    <Typography variant={variant as any} component="div">
+      {editControls && editControls[controlName] ? (
+        <Input
+          label=""
+          name={name as string}
+          value={value as string}
+          onChange={handleChange}
+          multiline={multiline}
+          adornment={
+            <IconButton
+              size="small"
+              onClick={(e) => {
+                handleCancelClick(e, controlName);
+              }}
+            >
+              <CancelIcon />
+            </IconButton>
+          }
+        />
+      ) : name === 'price' ? (
+        `Price: $${value}`
+      ) : (
+        value
+      )}
+      &nbsp;&nbsp;
+      {renderEditSaveBtns(name as string, controlName, value)}
+    </Typography>
+  );
+
+  return (
     <Grid item xs={12} sm={6} md={4} lg={4} xl={3}>
       <Card className={classes.card}>
         <CardMedia
