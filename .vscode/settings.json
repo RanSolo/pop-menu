@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "Fira Code",
-  "editor.defaultFormatter": "Shunqian.prettier-plus",
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
   "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "all"
