@@ -1,94 +1,42 @@
+# PopMenu Menu Challenge
+- Clone the repos
+- ``` npm i ```
+- ``` npx nx serve api ```
+- Listening at http://localhost:3333/api
+- ``` npx nx serve menu-challenge```
+- visit http://localhost:4200/
+- For E2E kill frontend server
+- npx nx run menu-challenge-e2e:e2e --watch
+- ``` npx nx test ui ```
+- ``` npx nx test menu-challenge --watchAll ```
 
+## Responsiveness
+### xl
+![Screen Shot 2021-11-10 at 10 13 44 PM](https://user-images.githubusercontent.com/6284142/141235901-661953b8-7812-4f5f-9bb4-c1bb7fa07ef9.png)
+### lg
+![Screen Shot 2021-11-10 at 10 13 55 PM](https://user-images.githubusercontent.com/6284142/141235894-1086b64f-e792-45fc-83ad-99addbb0e1d1.png)
+### md
+![Screen Shot 2021-11-10 at 10 14 20 PM](https://user-images.githubusercontent.com/6284142/141235893-7d8c0860-3273-4bc1-a500-12f41fcb6c58.png)
+### sm
+![Screen Shot 2021-11-10 at 10 14 33 PM](https://user-images.githubusercontent.com/6284142/141235891-7e34b2e1-f4be-4f28-b7ee-e05eee26d73b.png)
+### xs 
+![Screen Shot 2021-11-10 at 10 14 48 PM](https://user-images.githubusercontent.com/6284142/141235889-37baedaa-8a4b-499b-a9ae-dbee38a978a4.png)
+### Can add new
+![Screen Shot 2021-11-10 at 10 17 41 PM](https://user-images.githubusercontent.com/6284142/141236296-65e7e523-c4ea-4864-9e56-1eb29dac071b.png)
+### Can edit in place
+![Screen Shot 2021-11-10 at 10 18 09 PM](https://user-images.githubusercontent.com/6284142/141236295-88ba35fd-fdc1-4552-8bc1-58eee513b5d6.png)
+![Screen Shot 2021-11-10 at 10 18 24 PM](https://user-images.githubusercontent.com/6284142/141236294-4ed3cf2f-6b5c-45e5-a06b-f41c6da4b87c.png)
+![Screen Shot 2021-11-10 at 10 18 31 PM](https://user-images.githubusercontent.com/6284142/141236292-f8c5a140-62cd-4c24-9b32-7d47d9631771.png)
+### Can delete
+**![image](https://user-images.githubusercontent.com/6284142/141236266-a6920e21-aba1-4458-ac66-de2075ab7780.png)**
 
-# PopMenu
+### Tests
+``` npx nx test ui ```
+![Screen Shot 2021-11-10 at 10 04 38 PM](https://user-images.githubusercontent.com/6284142/141235185-56fab330-c0fd-44f0-b93e-1996ff91573d.png)
+``` npx nx test menu-challenge ```
+![Screen Shot 2021-11-10 at 10 04 05 PM](https://user-images.githubusercontent.com/6284142/141237024-476dca41-446d-4773-89ff-66333d0e8812.png)
+### E2E Tests using cypress
 
+``` npx nx menu-challenge-e2e:e2e --watchAll ```
+![image](https://user-images.githubusercontent.com/6284142/141234735-4942c9a1-89ab-4046-9198-770b57d925b7.png)
 This project was generated using [Nx](https://nx.dev).
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
-
-🔎 **Smart, Extensible Build Framework**
-
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@pop-menu/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
