@@ -9,11 +9,11 @@ import { OnClick } from '@pop-menu/api-interfaces';
 import Button from '../button';
 
 interface DeleteMenuItem {
-  text: string
-  onDelete: any
+  text: string;
+  onDelete: any;
 }
 
-export function DeleteItemButton({text, onDelete}: DeleteMenuItem) {
+export function DeleteItemButton({ text, onDelete }: DeleteMenuItem) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
 
@@ -26,9 +26,9 @@ export function DeleteItemButton({text, onDelete}: DeleteMenuItem) {
   };
 
   const handleDelete = () => {
-    handleClose()
-    onDelete()
-  }
+    handleClose();
+    onDelete();
+  };
 
   return (
     <div>
@@ -39,26 +39,19 @@ export function DeleteItemButton({text, onDelete}: DeleteMenuItem) {
         aria-labelledby="responsive-dialog-title"
       >
         <DialogTitle id="responsive-dialog-title">
-          {"Confirm Delete?"}
+          {'Confirm Delete?'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Confirm you wish to delete item {text}
+            Confirm you wish to delete item.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button 
-            text="Cancel"
-            onClick={handleClose}
-            color="default"
-          />
-          <Button 
-            text="Delete"
-            onClick={handleDelete}
-          />
+          <Button text="Cancel" onClick={handleClose} color="default" />
+          <Button text="Delete" onClick={handleDelete} />
         </DialogActions>
       </Dialog>
     </div>
   );
 }
-export default DeleteItemButton
+export default DeleteItemButton;
