@@ -2,25 +2,27 @@ import { OnClick } from '@pop-menu/api-interfaces';
 import { Button as MuiButton, Color } from '@material-ui/core';
 
 /* eslint-disable-next-line */
-export interface UiButtonProps {
+export type UiButtonProps = {
   text: string
-  onClick: OnClick
+  onClick: any
   color?: string
   variable?: string
+  name?: string
 }
 
 export function Button({
   text, 
   onClick, 
   color='primary', 
-  variable = ''
+  variable = '',
+  name= ''
   }: UiButtonProps) {
   return (
     <MuiButton 
       fullWidth
       variant="contained"
       color={color as any}
-      onClick={onClick}
+      onClick={(e) => onClick(e, name)}
       size="large"
     >
       {text}
